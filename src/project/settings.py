@@ -19,6 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework'
 ]
+PROJECT_APPS = [
+    'apps.todo',
+    'apps.users',
+]
+INSTALLED_APPS += PROJECT_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -67,6 +72,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 STATIC_URL = '/static/'
-STATIC_ROOT = rhea_config.get_string('STATIC_ROOT')
+STATIC_ROOT = rhea_config.get_string('STATIC_ROOT', is_optional=True, default='static')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = rhea_config.get_string('MEDIA_ROOT')
+MEDIA_ROOT = rhea_config.get_string('MEDIA_ROOT', is_optional=True, default='media')
