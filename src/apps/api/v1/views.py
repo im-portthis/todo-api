@@ -73,6 +73,7 @@ class TaskViewSetV1(viewsets.ModelViewSet):
         DjangoFilterBackend
     )
     filter_class = TaskFilterV1
+    search_fields = ('^name',)
 
     def get_serializer_class(self):
         if self.action == 'list':
