@@ -1,0 +1,55 @@
+version: "3.7"
+
+x-web-settings: &web-settings
+  DEBUG: "${DEBUG}"
+  DJANGO_WEB: "${DJANGO_WEB}"
+  DJANGO_STATIC: "${DJANGO_STATIC}"
+  DJANGO_MIGRATE: "${DJANGO_MIGRATE}"
+  SECRET_KEY: "${SECRET_KEY}"
+  STATIC_ROOT: "${STATIC_ROOT}"
+  MEDIA_ROOT: "${MEDIA_ROOT}"
+
+x-db-settings: &db-settings
+  POSTGRES_USER: "${POSTGRES_USER}"
+  POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+  POSTGRES_DB: "${POSTGRES_DB}"
+
+x-db-connection: &db-conn-settings
+  POSTGRES_HOST: "${POSTGRES_HOST}"
+  POSTGRES_PORT: "${POSTGRES_PORT}"
+
+volumes:
+  static_data:
+    driver: local
+  media_data:
+    driver: local
+  db_data:
+    driver: local
+
+services:
+  db:
+    image: postgres:12.1
+    environment:
+      <<: *db-settings
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  web:
+    build:
+      context: .
+      dockerfile: ./devops/Dockerfile
+    image: todo-api/web:1.0
+    command: ./entrypoint.sh
+    environment:
+      <<: *web-settings
+      <<: *db-settings
+      <<: *db-conn-settings
+    volumes:
+      - static_data:/opt/static_data
+      - media_data:/opt/media_data
+      - ./src:/opt/project
+    ports:
+      - 8000:8000
+    depends_on:
+      - db

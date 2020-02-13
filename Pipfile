@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==3.0.3"
+psycopg2-binary = "==2.8.4"
+djangorestframework = "==3.11.0"
+markdown = "==3.2.1"
+django-filter = "==2.2.0"
+rhea = "==0.5.5"
+
+[requires]
+python_version = "3.7"
