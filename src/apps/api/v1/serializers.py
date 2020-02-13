@@ -25,7 +25,7 @@ class AccountListSerializerV1(serializers.ModelSerializer):
 class TaskSerializerV1(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ('id', 'name', )
+        fields = ('id', 'name', 'description', )
 
 
 class TaskListSerializerV1(serializers.ModelSerializer):
@@ -77,6 +77,7 @@ class AssignReviewerSerializerV1(serializers.Serializer):
             pass
         else:
             raise ValidationError('Ответственный уже назначен')
+        return attrs
 
 
 class AccountExtraSerializerV1(serializers.ModelSerializer):
