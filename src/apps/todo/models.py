@@ -31,6 +31,18 @@ class Task(models.Model):
 
 
 class AccountTask(models.Model):
-    performer = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='performers')
-    checking = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True, blank=True, related_name='checking')
+    performer = models.ForeignKey(
+        Account,
+        on_delete=models.CASCADE,
+        related_name='performers',
+        verbose_name=_('Исполняющий'),
+    )
+    checking = models.ForeignKey(
+        Account,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='checking',
+        verbose_name=_('Ответственный'),
+    )
     task = models.ForeignKey(Task, on_delete=models.CASCADE)

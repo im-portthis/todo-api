@@ -75,11 +75,13 @@ class Migration(migrations.Migration):
                     on_delete=django.db.models.deletion.SET_NULL,
                     related_name='checking',
                     to='todo.Account',
+                    verbose_name='Ответственный',
                 )),
                 ('performer', models.ForeignKey(
                     on_delete=django.db.models.deletion.CASCADE,
                     related_name='performers',
                     to='todo.Account',
+                    verbose_name='Исполняющий',
                 )),
                 ('task', models.ForeignKey(
                     on_delete=django.db.models.deletion.CASCADE,

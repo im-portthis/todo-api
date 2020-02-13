@@ -7,8 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 class PerformerTaskTabularInline(admin.TabularInline):
     model = AccountTask
     fk_name = 'performer'
-    verbose_name = _('Исполнитель')
-    verbose_name_plural = _('Исполнитель')
+    verbose_name = _('Исполняющий')
+    verbose_name_plural = _('Исполняющий')
     fields = ('task', )
     extra = 1
 
