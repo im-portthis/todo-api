@@ -20,7 +20,6 @@ if [[ ${DJANGO_WEB} = 1 ]]; then
         echo "Starting debug server..."
         python manage.py runserver 0.0.0.0:8000 --noreload
     else
-        echo "Server not run!"
-        echo "TODO: ... "
+        gunicorn project.wsgi:application --bind 0.0.0.0:8000
     fi
 fi

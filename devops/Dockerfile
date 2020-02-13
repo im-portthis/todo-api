@@ -4,7 +4,7 @@ WORKDIR /opt/project
 
 COPY Pipfile Pipfile.lock ./
 RUN pip install -U pip && \
-    pip install pipenv && \
+    pip install pipenv gunicorn && \
     pipenv install --system --deploy
 
 COPY ./src .

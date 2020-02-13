@@ -27,14 +27,22 @@ volumes:
     driver: local
 
 services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - static_data:/opt/static_files
+      - media_data:/opt/media_files
+      - ./devops/:/etc/nginx/conf.d
+    depends_on:
+      - web
+    ports:
+      - 8080:80
   db:
     image: postgres:12.1
     environment:
       <<: *db-settings
     volumes:
       - db_data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
   web:
     build:
       context: .
@@ -46,10 +54,7 @@ services:
       <<: *db-settings
       <<: *db-conn-settings
     volumes:
-      - static_data:/opt/static_data
-      - media_data:/opt/media_data
-      - ./src:/opt/project
-    ports:
-      - 8000:8000
+      - static_data:/opt/static_files
+      - media_data:/opt/media_files
     depends_on:
       - db
