@@ -25,24 +25,42 @@ class Task(models.Model):
 
     name = models.CharField(_('Название'), max_length=255)
     description = models.TextField(_('Описание'))
+    performer_mtm = models.ManyToManyField(
+        Account,
+        through='AccountTask',
+        through_fields=('task', 'performer'),
+        related_name='tasks',
+    )
+    reviewer_mtm = models.ManyToManyField(
+        Account,
+        through='AccountTask',
+        through_fields=('task', 'reviewer'),
+        related_name='verifiable',
+    )
 
     def __str__(self):
         return self.name
 
 
 class AccountTask(models.Model):
+    class Meta:
+        unique_together = (('performer', 'task'), )
+
     performer = models.ForeignKey(
         Account,
         on_delete=models.CASCADE,
-        related_name='performers',
+        related_name='performer',
         verbose_name=_('Исполняющий'),
     )
-    checking = models.ForeignKey(
+    reviewer = models.ForeignKey(
         Account,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='checking',
+        related_name='reviewers',
         verbose_name=_('Ответственный'),
     )
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'<AccountTask task:{self.task_id} performer:{self.performer_id}>'

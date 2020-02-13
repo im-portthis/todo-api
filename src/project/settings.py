@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'rest_framework'
 ]
 PROJECT_APPS = [
@@ -75,3 +76,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = rhea_config.get_string('STATIC_ROOT', is_optional=True, default='static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = rhea_config.get_string('MEDIA_ROOT', is_optional=True, default='media')
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 25,
+    # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated', ),
+}

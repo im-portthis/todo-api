@@ -13,9 +13,9 @@ class PerformerTaskTabularInline(admin.TabularInline):
     extra = 1
 
 
-class CheckingTaskTabularInline(admin.TabularInline):
+class ReviewerTaskTabularInline(admin.TabularInline):
     model = AccountTask
-    fk_name = 'checking'
+    fk_name = 'reviewer'
     verbose_name = _('Ответственный')
     verbose_name_plural = _('Ответственный')
     fields = ('task', 'performer', )
@@ -37,7 +37,7 @@ class AccountAdmin(admin.ModelAdmin):
     list_filter = ('position', 'city', 'is_admin', )
     inlines = (
         PerformerTaskTabularInline,
-        CheckingTaskTabularInline,
+        ReviewerTaskTabularInline,
     )
 
 
