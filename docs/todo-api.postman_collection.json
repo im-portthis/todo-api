@@ -924,6 +924,216 @@
 							"body": "{\n    \"id\": 1,\n    \"name\": \"Петров Петр\",\n    \"position\": \"Директор\",\n    \"city\": \"Москва\",\n    \"is_admin\": false,\n    \"tasks\": [\n        {\n            \"id\": 1,\n            \"name\": \"Задача 1\",\n            \"reviewers\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Петров Петр\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Задача 2\",\n            \"reviewers\": []\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "поиск",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/accounts/?search=Директор",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Директор"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "поиск",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/accounts/?search=Директор",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Директор"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Feb 2020 22:59:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "291"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 6,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 7,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Петров Петр\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "фильтрация",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/accounts/?position=Директор",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"accounts",
+								""
+							],
+							"query": [
+								{
+									"key": "position",
+									"value": "Директор"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "фильтрация",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/accounts/?position=Директор",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "position",
+											"value": "Директор"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Feb 2020 23:01:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "291"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 6,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 7,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Иванов Иван\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Петров Петр\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1449,6 +1659,216 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "поиск",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/tasks/?search=Задача",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Задача"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "поиск",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/tasks/?search=Задача",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Задача"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Feb 2020 23:03:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 6,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 7,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Задача 3\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Задача 2\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "фильтрация",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/v1/tasks/?name=Задача 1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Задача 1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "фильтрация",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/api/v1/tasks/?name=Задача 1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Задача 1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.17.8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Feb 2020 23:05:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 7,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Задача 1\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Задача 1\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			],
 			"protocolProfileBehavior": {}
