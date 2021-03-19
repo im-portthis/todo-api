@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 django = "==3.0.3"
 psycopg2-binary = "==2.8.4"
-djangorestframework = "==3.11.0"
+djangorestframework = "==3.11.2"
 markdown = "==3.2.1"
 django-filter = "==2.2.0"
 rhea = "==0.5.5"
